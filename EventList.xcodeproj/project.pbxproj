@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E26C124525DF9E7C004BFD11 /* IEventsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26C124425DF9E7C004BFD11 /* IEventsAPIService.swift */; };
+		E26C124A25DF9E98004BFD11 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26C124925DF9E98004BFD11 /* Event.swift */; };
+		E26C124E25DFAF32004BFD11 /* EventsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26C124D25DFAF32004BFD11 /* EventsAPIService.swift */; };
 		E2E4AC3325DEC97600FBB94C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E4AC3225DEC97600FBB94C /* AppDelegate.swift */; };
 		E2E4AC3725DEC97600FBB94C /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E4AC3625DEC97600FBB94C /* EventsViewController.swift */; };
 		E2E4AC3C25DEC97800FBB94C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2E4AC3B25DEC97800FBB94C /* Assets.xcassets */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E26C124425DF9E7C004BFD11 /* IEventsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEventsAPIService.swift; sourceTree = "<group>"; };
+		E26C124925DF9E98004BFD11 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		E26C124D25DFAF32004BFD11 /* EventsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsAPIService.swift; sourceTree = "<group>"; };
 		E2E4AC2F25DEC97600FBB94C /* EventList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2E4AC3225DEC97600FBB94C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2E4AC3625DEC97600FBB94C /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +41,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E26C124225DF9E61004BFD11 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E26C124325DF9E68004BFD11 /* EventsAPI */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E26C124325DF9E68004BFD11 /* EventsAPI */ = {
+			isa = PBXGroup;
+			children = (
+				E26C124425DF9E7C004BFD11 /* IEventsAPIService.swift */,
+				E26C124D25DFAF32004BFD11 /* EventsAPIService.swift */,
+			);
+			path = EventsAPI;
+			sourceTree = "<group>";
+		};
+		E26C124825DF9E8D004BFD11 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E26C124925DF9E98004BFD11 /* Event.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E2E4AC2625DEC97600FBB94C = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +112,8 @@
 		E2E4AC4B25DEC9EC00FBB94C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E26C124825DF9E8D004BFD11 /* Models */,
+				E26C124225DF9E61004BFD11 /* Services */,
 				E2E4AC5025DECB5200FBB94C /* User Stories */,
 				E2E4AC3225DEC97600FBB94C /* AppDelegate.swift */,
 			);
@@ -98,8 +131,8 @@
 		E2E4AC5225DECB6400FBB94C /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				E2E4AC3625DEC97600FBB94C /* EventsViewController.swift */,
 				E2E4AC5725DECDE700FBB94C /* EventsViewModel.swift */,
+				E2E4AC3625DEC97600FBB94C /* EventsViewController.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -174,8 +207,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2E4AC5825DECDE700FBB94C /* EventsViewModel.swift in Sources */,
+				E26C124E25DFAF32004BFD11 /* EventsAPIService.swift in Sources */,
 				E2E4AC3725DEC97600FBB94C /* EventsViewController.swift in Sources */,
 				E2E4AC3325DEC97600FBB94C /* AppDelegate.swift in Sources */,
+				E26C124525DF9E7C004BFD11 /* IEventsAPIService.swift in Sources */,
+				E26C124A25DF9E98004BFD11 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

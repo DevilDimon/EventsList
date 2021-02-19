@@ -9,7 +9,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
 	) -> Bool {
 
-		let eventsVM = EventsViewModel()
+		let eventsAPIService = EventsAPIService()
+		let eventsVM = EventsViewModel(eventsAPIService: eventsAPIService)
 		let eventsVC = EventsViewController(viewModel: eventsVM)
 		let navigationVC = UINavigationController(rootViewController: eventsVC)
 

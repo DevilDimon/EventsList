@@ -13,9 +13,9 @@ final class EventsViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		view.backgroundColor = .systemTeal
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		viewModel.viewWillAppear()
 	}
 }
 
