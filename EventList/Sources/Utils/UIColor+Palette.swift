@@ -9,10 +9,10 @@ extension UIColor {
 		}
 	}
 
-
 	static let els_codGrey: UIColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
 	static let els_tuatara: UIColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
 	static let els_tuna: UIColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+	static let els_silver: UIColor = #colorLiteral(red: 0.7411764706, green: 0.7411764706, blue: 0.7411764706, alpha: 1)
 	static let els_alabaster: UIColor = #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 1)
 
 	static let els_white_codGrey = UIColor.color(.white, dark: .els_codGrey)

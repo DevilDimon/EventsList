@@ -68,7 +68,6 @@ private extension EventsViewModel {
 			let state: State
 			switch result {
 				case .success(let events):
-					print(events.map { $0.imageUrl })
 					let sections = self.makeSections(from: events)
 					state = .success(sections)
 				case .failure:

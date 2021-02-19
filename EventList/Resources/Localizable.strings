@@ -1,1 +1,4 @@
 "events.title" = "SpeedRoommating";
+"events.cell.cost.unknown" = "UNKNOWN";
+"events.cell.location.unknown" = "Unknown location";
+"events.cell.venue.unknown" = "Unknown venue";
