@@ -54,7 +54,7 @@ final class EventsViewModel {
 	}
 
 	func viewWillAppear() {
-		fetchEvents()
+//		fetchEvents()
 	}
 }
 

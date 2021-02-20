@@ -6,7 +6,7 @@ private enum Constants {
 }
 
 final class EventCell: UITableViewCell {
-	static let reuseIdentifier = String(describing: self)
+	static let reuseIdentifier = String(describing: EventCell.self)
 
 	var viewModel: EventCellViewModel? {
 		didSet {
