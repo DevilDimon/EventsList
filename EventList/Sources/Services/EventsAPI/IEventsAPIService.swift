@@ -2,6 +2,7 @@ enum EventsAPIServiceError: Error {
 	case requestFailure
 	case decodingFailure
 	case invalidURL
+	case noInternet
 }
 
 protocol IEventsAPIService {

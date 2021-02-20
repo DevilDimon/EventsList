@@ -57,7 +57,7 @@ final class EventsViewModel {
 				 .empty(_, let placeholders),
 				 .failure(_, let placeholders),
 				 .offline(_, let placeholders):
-				return placeholders.count
+				return placeholders.count + 1
 		}
 	}
 
@@ -72,7 +72,7 @@ final class EventsViewModel {
 	}
 
 	func viewWillAppear() {
-//		fetchEvents()
+		fetchEvents()
 	}
 
 }
@@ -81,16 +81,21 @@ final class EventsViewModel {
 
 private extension EventsViewModel {
 	func fetchEvents() {
+		state = .loading([.init(), .init(), .init()])
 		eventsAPIService.fetchEvents { [weak self] result in
 			guard let self = self else { return }
 
 			let state: State
 			switch result {
+				case .success(let events) where events.isEmpty == true:
+					state = .empty(.init(type: .empty), [.init(), .init()])
 				case .success(let events):
 					let sections = self.makeSections(from: events)
 					state = .success(sections)
+				case .failure(let error) where error == .noInternet:
+					state = .failure(.init(type: .offline), [.init(), .init()])
 				case .failure:
-					state = .failure(.init(type: .error), [.init(), .init(), .init()])
+					state = .failure(.init(type: .error), [.init(), .init()])
 			}
 
 			DispatchQueue.main.async { [weak self] in

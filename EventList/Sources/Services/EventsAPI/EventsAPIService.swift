@@ -32,7 +32,15 @@ final class EventsAPIService: IEventsAPIService {
 		completion: @escaping (Result<T, EventsAPIServiceError>) -> Void
 	) {
 		urlSession.dataTask(with: request) { [weak self] (data, _, error) in
-			if error != nil {
+			if let error = error {
+				if let networkError = error as? URLError,
+				   (networkError.errorCode == NSURLErrorNotConnectedToInternet ||
+					networkError.errorCode == NSURLErrorNetworkConnectionLost) {
+
+					completion(.failure(.noInternet))
+					return
+				}
+
 				completion(.failure(.requestFailure))
 				return
 			} else if let data = data {
