@@ -14,8 +14,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		let eventsVC = EventsViewController(viewModel: eventsVM)
 		let navigationVC = UINavigationController(rootViewController: eventsVC)
 
-		navigationVC.navigationBar.prefersLargeTitles = true
-
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.rootViewController = navigationVC
 		window?.makeKeyAndVisible()

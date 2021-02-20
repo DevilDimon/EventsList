@@ -51,7 +51,8 @@ private extension EventsViewController {
 		tableView.dataSource = self
 		tableView.delegate = self
 		tableView.register(EventCell.self, forCellReuseIdentifier: EventCell.reuseIdentifier)
-		tableView.register(EventLoadingCell.self, forCellReuseIdentifier: EventLoadingCell.reuseIdentifier)
+		tableView.register(EventPlaceholderCell.self, forCellReuseIdentifier: EventPlaceholderCell.reuseIdentifier)
+		tableView.register(EventHeaderCell.self, forCellReuseIdentifier: EventHeaderCell.reuseIdentifier)
 		tableView.estimatedRowHeight = 250
 	}
 }
@@ -74,8 +75,20 @@ extension EventsViewController: UITableViewDataSource {
 					as? EventCell
 				cell?.viewModel = items[indexPath.section].items[indexPath.row]
 				return cell ?? UITableViewCell()
-			case .loading, .failure, .offline:
-				let cell = tableView.dequeueReusableCell(withIdentifier: EventLoadingCell.reuseIdentifier, for: indexPath)
+			case let .empty(headerVM, _),
+				 let .failure(headerVM, _),
+				 let .offline(headerVM, _):
+				if indexPath.row == 0 {
+					let cell = tableView.dequeueReusableCell(withIdentifier: EventHeaderCell.reuseIdentifier)
+						as? EventHeaderCell
+					cell?.viewModel = headerVM
+					return cell ?? UITableViewCell()
+				} else {
+					let cell = tableView.dequeueReusableCell(withIdentifier: EventPlaceholderCell.reuseIdentifier, for: indexPath)
+					return cell
+				}
+			case .loading:
+				let cell = tableView.dequeueReusableCell(withIdentifier: EventPlaceholderCell.reuseIdentifier, for: indexPath)
 				return cell
 		}
 	}

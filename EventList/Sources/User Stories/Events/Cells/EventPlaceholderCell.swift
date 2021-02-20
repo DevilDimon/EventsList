@@ -1,7 +1,7 @@
 import UIKit
 
-final class EventLoadingCell: UITableViewCell {
-	static let reuseIdentifier = String(describing: EventLoadingCell.self)
+final class EventPlaceholderCell: UITableViewCell {
+	static let reuseIdentifier = String(describing: EventPlaceholderCell.self)
 
 	private let containerView: UIView = {
 		let view = UIView()

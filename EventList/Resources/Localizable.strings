@@ -2,3 +2,10 @@
 "events.cell.cost.unknown" = "UNKNOWN";
 "events.cell.location.unknown" = "Unknown location";
 "events.cell.venue.unknown" = "Unknown venue";
+"events.header.empty.title" = "Nothing to show";
+"events.header.empty.caption" = "No upcoming events are scheduled. If this is incorrect, get in touch with our CORE team.";
+"events.header.offline.title" = "No connection";
+"events.header.offline.caption" = "You appear to be offline. Check your mobile or wifi connection and try again.";
+"events.header.error.title" = "Something's gone wrong";
+"events.header.error.caption" = "We couldn't download the upcoming events. Check your cellular or wifi connection and try again.";
+"events.header.retry" = "Retry";

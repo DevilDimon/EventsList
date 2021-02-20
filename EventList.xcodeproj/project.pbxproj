@@ -20,7 +20,10 @@
 		E2ADDC2725E023B5005B5B81 /* DateFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADDC2625E023B5005B5B81 /* DateFormatter+Ext.swift */; };
 		E2ADDC2B25E039DE005B5B81 /* DateIntervalFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADDC2A25E039DE005B5B81 /* DateIntervalFormatter+Ext.swift */; };
 		E2ADDC2F25E042AC005B5B81 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADDC2E25E042AC005B5B81 /* GradientView.swift */; };
-		E2ADDC4125E0DEF7005B5B81 /* EventLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADDC4025E0DEF7005B5B81 /* EventLoadingCell.swift */; };
+		E2ADDC4125E0DEF7005B5B81 /* EventPlaceholderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADDC4025E0DEF7005B5B81 /* EventPlaceholderCell.swift */; };
+		E2ADDC4525E0E694005B5B81 /* EventPlaceholderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADDC4425E0E694005B5B81 /* EventPlaceholderCellViewModel.swift */; };
+		E2ADDC4925E0E8C2005B5B81 /* EventHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADDC4825E0E8C2005B5B81 /* EventHeaderCell.swift */; };
+		E2ADDC4D25E0EF25005B5B81 /* EventHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ADDC4C25E0EF25005B5B81 /* EventHeaderCellViewModel.swift */; };
 		E2E4AC3325DEC97600FBB94C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E4AC3225DEC97600FBB94C /* AppDelegate.swift */; };
 		E2E4AC3725DEC97600FBB94C /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E4AC3625DEC97600FBB94C /* EventsViewController.swift */; };
 		E2E4AC3C25DEC97800FBB94C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2E4AC3B25DEC97800FBB94C /* Assets.xcassets */; };
@@ -40,7 +43,10 @@
 		E2ADDC2625E023B5005B5B81 /* DateFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Ext.swift"; sourceTree = "<group>"; };
 		E2ADDC2A25E039DE005B5B81 /* DateIntervalFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateIntervalFormatter+Ext.swift"; sourceTree = "<group>"; };
 		E2ADDC2E25E042AC005B5B81 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		E2ADDC4025E0DEF7005B5B81 /* EventLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLoadingCell.swift; sourceTree = "<group>"; };
+		E2ADDC4025E0DEF7005B5B81 /* EventPlaceholderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPlaceholderCell.swift; sourceTree = "<group>"; };
+		E2ADDC4425E0E694005B5B81 /* EventPlaceholderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPlaceholderCellViewModel.swift; sourceTree = "<group>"; };
+		E2ADDC4825E0E8C2005B5B81 /* EventHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHeaderCell.swift; sourceTree = "<group>"; };
+		E2ADDC4C25E0EF25005B5B81 /* EventHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHeaderCellViewModel.swift; sourceTree = "<group>"; };
 		E2E4AC2F25DEC97600FBB94C /* EventList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2E4AC3225DEC97600FBB94C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2E4AC3625DEC97600FBB94C /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +99,10 @@
 			children = (
 				E2ADDC1425E00B67005B5B81 /* EventCellViewModel.swift */,
 				E2ADDBFD25E00578005B5B81 /* EventCell.swift */,
-				E2ADDC4025E0DEF7005B5B81 /* EventLoadingCell.swift */,
+				E2ADDC4425E0E694005B5B81 /* EventPlaceholderCellViewModel.swift */,
+				E2ADDC4025E0DEF7005B5B81 /* EventPlaceholderCell.swift */,
+				E2ADDC4C25E0EF25005B5B81 /* EventHeaderCellViewModel.swift */,
+				E2ADDC4825E0E8C2005B5B81 /* EventHeaderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -273,13 +282,16 @@
 				E2E4AC5825DECDE700FBB94C /* EventsViewModel.swift in Sources */,
 				E2ADDC2B25E039DE005B5B81 /* DateIntervalFormatter+Ext.swift in Sources */,
 				E26C124E25DFAF32004BFD11 /* EventsAPIService.swift in Sources */,
-				E2ADDC4125E0DEF7005B5B81 /* EventLoadingCell.swift in Sources */,
+				E2ADDC4125E0DEF7005B5B81 /* EventPlaceholderCell.swift in Sources */,
 				E2E4AC3725DEC97600FBB94C /* EventsViewController.swift in Sources */,
 				E2ADDC2725E023B5005B5B81 /* DateFormatter+Ext.swift in Sources */,
 				E2E4AC3325DEC97600FBB94C /* AppDelegate.swift in Sources */,
 				E2ADDC1525E00B67005B5B81 /* EventCellViewModel.swift in Sources */,
+				E2ADDC4925E0E8C2005B5B81 /* EventHeaderCell.swift in Sources */,
+				E2ADDC4525E0E694005B5B81 /* EventPlaceholderCellViewModel.swift in Sources */,
 				E26C124525DF9E7C004BFD11 /* IEventsAPIService.swift in Sources */,
 				E26C124A25DF9E98004BFD11 /* Event.swift in Sources */,
+				E2ADDC4D25E0EF25005B5B81 /* EventHeaderCellViewModel.swift in Sources */,
 				E2ADDBFE25E00578005B5B81 /* EventCell.swift in Sources */,
 				E2ADDC2F25E042AC005B5B81 /* GradientView.swift in Sources */,
 				E2ADDC0E25E007D0005B5B81 /* UIColor+Palette.swift in Sources */,

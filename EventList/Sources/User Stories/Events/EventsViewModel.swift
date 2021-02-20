@@ -3,9 +3,24 @@ import Foundation
 final class EventsViewModel {
 	enum State: Equatable {
 		case success([EventsTableSection])
-		case loading
-		case failure
-		case offline
+		case loading([EventPlaceholderCellViewModel])
+		case empty(EventHeaderCellViewModel, [EventPlaceholderCellViewModel])
+		case failure(EventHeaderCellViewModel, [EventPlaceholderCellViewModel])
+		case offline(EventHeaderCellViewModel, [EventPlaceholderCellViewModel])
+
+		static func ==(lhs: State, rhs: State) -> Bool {
+			switch (lhs, rhs) {
+				case let (.success(leftItems), .success(rightItems)):
+					return leftItems == rightItems
+				case (.loading, .loading),
+					 (.empty, .empty),
+					 (.failure, .failure),
+					 (.offline, .offline):
+					return true
+				default:
+					return false
+			}
+		}
 	}
 
 	var numberOfSections: Int {
@@ -19,7 +34,7 @@ final class EventsViewModel {
 
 	var stateDidChange: (() -> Void)?
 
-	private(set) var state: State = .loading {
+	private(set) var state: State = .loading([.init(), .init(), .init()]) {
 		didSet {
 			if state != oldValue {
 				stateDidChange?()
@@ -38,8 +53,11 @@ final class EventsViewModel {
 			case .success(let sections):
 				assert(section < sections.count)
 				return sections[section].items.count
-			default:
-				return 3
+			case .loading(let placeholders),
+				 .empty(_, let placeholders),
+				 .failure(_, let placeholders),
+				 .offline(_, let placeholders):
+				return placeholders.count
 		}
 	}
 
@@ -56,6 +74,7 @@ final class EventsViewModel {
 	func viewWillAppear() {
 //		fetchEvents()
 	}
+
 }
 
 // MARK: - Private
@@ -71,7 +90,7 @@ private extension EventsViewModel {
 					let sections = self.makeSections(from: events)
 					state = .success(sections)
 				case .failure:
-					state = .failure
+					state = .failure(.init(type: .error), [.init(), .init(), .init()])
 			}
 
 			DispatchQueue.main.async { [weak self] in
