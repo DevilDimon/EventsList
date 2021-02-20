@@ -49,5 +49,9 @@ final class EventHeaderCellViewModel {
 		self.didTapRetry = didTapRetry
 	}
 
-	
+	// MARK: View events
+
+	func tapRetry() {
+		didTapRetry?()
+	}
 }

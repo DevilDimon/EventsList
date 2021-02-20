@@ -71,6 +71,9 @@ final class EventsViewModel {
 		}
 	}
 
+
+	// MARK: View events
+	
 	func viewWillAppear() {
 		fetchEvents()
 	}
@@ -85,6 +88,8 @@ private extension EventsViewModel {
 		eventsAPIService.fetchEvents { [weak self] result in
 			guard let self = self else { return }
 
+			let retryClosure: () -> Void = { [weak self] in self?.fetchEvents() }
+
 			let state: State
 			switch result {
 				case .success(let events) where events.isEmpty == true:
@@ -93,9 +98,9 @@ private extension EventsViewModel {
 					let sections = self.makeSections(from: events)
 					state = .success(sections)
 				case .failure(let error) where error == .noInternet:
-					state = .failure(.init(type: .offline), [.init(), .init()])
+					state = .failure(.init(type: .offline, didTapRetry: retryClosure), [.init(), .init()])
 				case .failure:
-					state = .failure(.init(type: .error), [.init(), .init()])
+					state = .failure(.init(type: .error, didTapRetry: retryClosure), [.init(), .init()])
 			}
 
 			DispatchQueue.main.async { [weak self] in

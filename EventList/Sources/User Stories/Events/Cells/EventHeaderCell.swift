@@ -74,11 +74,18 @@ final class EventHeaderCell: UITableViewCell {
 		stackView.setCustomSpacing(20, after: captionLabel)
 
 		stackView.addArrangedSubview(retryButton)
+		retryButton.addTarget(self, action: #selector(tapRetry), for: .touchUpInside)
 	}
 
 	@available(*, unavailable)
 	required init?(coder: NSCoder) {
 		fatalError("init?(coder:) not implemented")
+	}
+
+	// MARK: Actions
+
+	@objc func tapRetry() {
+		viewModel?.tapRetry()
 	}
 }
 
